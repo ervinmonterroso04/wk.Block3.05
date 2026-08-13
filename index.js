@@ -12,6 +12,11 @@
  */
 export function echo(word, n) {
   // TODO
+  let result = "";
+  for (let i = 0; i < n; i++) {
+    result += word;
+  }
+  return result;
 }
 
 /**
@@ -28,6 +33,18 @@ export function echo(word, n) {
  */
 export function echoWithSpace(word, n) {
   // TODO
+  let result = "";
+
+  if (word === "") {
+    return result;
+  }
+  for (let i = 0; i < n; i++) {
+    result += word;
+    if (i < n - 1) {
+      result += " ";
+    }
+  }
+  return result;
 }
 
 /**
@@ -43,6 +60,14 @@ export function echoWithSpace(word, n) {
  */
 export function sumTo(n) {
   // TODO
+  if (n <= 0) {
+    return 0;
+  }
+  let result = 0;
+  for (let i = 1; i <= n; i++) {
+    result += i;
+  }
+  return result;
 }
 
 /**
@@ -59,6 +84,17 @@ export function sumTo(n) {
  */
 export function sumFromTo(a, z) {
   // TODO
+  if (a === z) {
+    return a;
+  }
+  if (a > z) {
+    return 0;
+  }
+  let result = 0;
+  for (let i = a; i <= z; i++) {
+    result += i;
+  }
+  return result;
 }
 
 /**
@@ -74,6 +110,9 @@ export function sumFromTo(a, z) {
  */
 export function countdown(n) {
   // TODO
+  for (let i = n; i >= 1; i--) {
+    console.log(i);
+  }
 }
 
 /**
@@ -89,6 +128,14 @@ export function countdown(n) {
  */
 export function sumOddsToN(n) {
   // TODO
+  if (n <= 0) {
+    return 0;
+  }
+  let result = 0;
+  for (let i = 1; i <= n; i += 2) {
+    result += i;
+  }
+  return result;
 }
 
 /**
@@ -109,6 +156,17 @@ export function sumOddsToN(n) {
  */
 export function getGrowthTime(start, target) {
   // TODO
+  if (start <= 0) {
+    return undefined;
+  }
+  if (start === target) {
+    return 0;
+  }
+  let result = 0;
+  for (let i = start; i < target; i *= 2) {
+    result += 20;
+  }
+  return result;
 }
 
 /**
@@ -129,6 +187,17 @@ export function getGrowthTime(start, target) {
  */
 export function getCompoundTime(start, rate, target) {
   // TODO
+  if (start <= 0 || rate <= 0) {
+    return undefined;
+  }
+  let years = 0;
+  let current = start;
+
+  while (current < target) {
+    current += current * rate;
+    years++;
+  }
+  return years;
 }
 
 /**
@@ -155,6 +224,18 @@ export function getCompoundTime(start, rate, target) {
  */
 export function moveWater(colander, bucket) {
   // TODO
+  let trips = 0;
+  let currentCapacity = colander;
+
+  while (bucket > 1) {
+    trips += 1;
+    bucket -= currentCapacity;
+  }
+  if (currentCapacity > 1) {
+    currentCapacity -= 1;
+  }
+
+  return trips;
 }
 
 /**
@@ -175,4 +256,15 @@ export function moveWater(colander, bucket) {
  */
 export function fizzbuzz(n) {
   // TODO
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("fizzbuzz");
+    } else if (i % 3 === 0) {
+      console.log("fizz");
+    } else if (i % 5 === 0) {
+      console.log("buzz");
+    } else {
+      console.log(i);
+    }
+  }
 }
